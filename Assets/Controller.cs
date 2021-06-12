@@ -35,6 +35,7 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(left))
         {
             rb.AddForce(Vector2.left * movementSpeed);
+            
         }
 
         if (Input.GetKey(right))
