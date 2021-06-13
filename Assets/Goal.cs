@@ -8,24 +8,16 @@ public class Goal : MonoBehaviour
     public string target;
     public End end;
 
+    public Vector3 cameraPos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals(target)) {
-            end.SetDone(target);
+            MainCameraScript s = Camera.main.gameObject.GetComponent<MainCameraScript>();
+            s.StartCoroutine("MoveCamera", cameraPos);
             Destroy(gameObject);
         }
     }
+
 }
